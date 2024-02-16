@@ -2,7 +2,7 @@
 Bienvenue au Dodjo !
 
 Le Dodjo est en quelque sorte le chemin que j'arpente dans l'univers de la programmation.
-Le Dodjo est mon expérience personnelle mais pourrait aussi être une voie pour d'autre : je vous la partage donc. 
+Le Dodjo est mon expérience personnelle mais pourrait aussi être une voie pour d'autres : je vous la partage donc. 
 Pourquoi Dodjo ? Parce que Dodjo, c'est beau. Parce que Dodjo, c'est rigolo.
 
 ## Avertissements
