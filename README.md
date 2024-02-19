@@ -22,7 +22,9 @@ Un ukemi est un brise-chute contrôlé qui sert à tomber sans se faire mal.
 <p align="center">
   <img src="./assets/ukemi.jpg"/>
 </p>
-
+<p align="center">
+  <em>Brisage de chute en cours... Veuillez patienter...</em>
+</p>
 
 Alors qu'au judo, je pratique les ukemi depuis mon enfance; j'ai appris bien tardivement à employer les tests "contrôlés" en programmation.
   
@@ -37,16 +39,36 @@ Par ailleurs, lorsque je reprenais du code de quelqu'un d'autre (en fait souvent
 
 Un des atouts du test controlé en programmation c'est de pouvoir se planter sans se faire mal.
 
-Un exemple basique consiste à tester une fonction en comparant sa sortie avec ce que j'attends d'elle pour un jeu de paramètres donné.  
+Un exemple basique consiste à tester une fonction en comparant sa sortie avec ce que j'attends d'elle pour un jeu de paramètres donné.  Voici un exemple,p our ceux qui développe en Python:
 
-Pour ceux qui développe en Python:
+Dans un fichier judo.py, j'écris la "coquille" de la fonction que je souhaite développer:
 ```python
 def ippon_seoi_nage(attaquant:Judoka, défenseur:Judoka) -> Score:
     " Calcule le score marqué par le judoka attaquant"
     pass
 ```
 
- on peut utiliser ``pytest`` pour nous y aider.
+Dans un autre fichier, le test:
+```python
+from judo_package import ippon_seoi_nage
+
+def test_ippon_seoi_nage():
+    # Je prépare les combatants
+    attaquant = Judoka(grade="noire")
+    defenseur = Judoka(grade="blanche")
+
+    # Je calcule
+    score = ippon_seoi_nage(attaquant:Judoka, defenseur:Judoka)
+
+    # Je "contrôle" que le résultat est bien celui pour lequel j'implémente ma fonction
+    assert score == Score("Ippon")
+```
+
+J'exécute le test (en général j'utilise ``pytest``). Et là ... bah ça foire! Mais c'est normal car la fonction ``ippon_seoi_nage`` n'a pas d'implémentation pour le moment !
+
+Allez, on se relève et on reprend le combat ! A vous d'imaginer une implémentation qui fera **passer le test au vert** (c'est pas du __green whasing__, enfin je ne crois pas...).
+
+
 
 
 
@@ -54,8 +76,8 @@ def ippon_seoi_nage(attaquant:Judoka, défenseur:Judoka) -> Score:
 
 ## Sujet à traiter:
 - TDD
-- DDD
 - Programmation Fonctionnelle
+- DDD
 - Continuous Delivery
 - Coding dojo
   
