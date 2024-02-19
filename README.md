@@ -70,7 +70,9 @@ J'exécute le test (en général j'utilise ``pytest``). Et là ... bah ça foire
 
 Allez, on se relève et on reprend le combat ! A vous d'imaginer une implémentation qui fera **passer le test au vert** (c'est pas du green washing, enfin je ne crois pas...). 
 
-Cette méthodologie, "coquille puis test puis implémentation", porte le nom de TDD pour *Test Driven Design*. Dans les faits, j'implémente souvent la fonction avant le test mais penser au test en amoint permet de mieux clarifier ce que l'on attend d'elle.
+Cette méthodologie, "coquille puis test puis implémentation", porte le nom de TDD pour *Test Driven Design*. Dans les faits, j'implémente souvent la fonction avant le test mais penser au test en amont permet de mieux clarifier ce que l'on attend d'elle.
+
+Maintenant plus d'arrachage de cheveux (enfin presque...) ! Dès que je touche à du code, je relance mes tests. Cela permet de détecter immédiatement si une partie ne fonctionne plus **comme attendue**. 
 
 ### Intention et preuve de bonne foi
 
@@ -80,11 +82,9 @@ Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont p
 
 ### Un premier pas sur le Chemin
 
-Malgré leur apparente simplicité, les tests déverrouillent tout un panel de techniques sophistiquées qui permettent de mieux maîtriser son code toute en gardant la flexitbilité de pouvoir le modifier sans peur de tout casser.
+Malgré leur apparente simplicité, les tests ont énormémement de vertues. Ils m'ont poussé à écrire du code "testable" et m'ont ammené un peu plus vers la *Programmation Fonctionnelle*. Il m'ont ouvert la voie à tout un panel de techniques sophistiquées, que je vais tenté de vous partagé ensuite, qui permettent de mieux maîtriser son code toute en gardant la flexitbilité de pouvoir le modifier sans peur de tout casser.
 
-Faites donc vous aussi, ce premier pas sur la Voie.
-
-
+Faites donc vous aussi, ce premier pas sur la Voie. Hajime !
 
 
 
