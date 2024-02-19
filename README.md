@@ -17,7 +17,7 @@ Je modifie ces notes de façon continue en fonction des retours des lectrices et
 
 ### Brise-chute
 
-Dans le contexte des arts martiaux, voici la définition de __ukemi__ d'après mon copain Wikipédia:
+Dans le contexte des arts martiaux, voici la définition de __ukemi__ d'après ma copine Wikipédia:
 ```
 Un ukemi est un brise-chute contrôlé qui sert à tomber sans se faire mal. 
 ```
@@ -76,11 +76,13 @@ Cette méthodologie, "coquille puis test puis implémentation", porte le nom de 
 
 Aujourd'hui, lorsque je découvre ou que je revois du code, je commence par regarder les tests. En effet, les tests vont naturellement indiquer ce que les auteurs du code avaient l'intention de faire. De plus, si l'exécution des tests se déroulent sans erreur cela "prouve" que le programme "fonctionne".
 
-Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont programmé et qui cherchent à me convaincre en disant "ça marchait sur ma machine", voire à faire les yeux du chat botté pour m'amadouer. Non, non, non!  Je lis et j'exécute les tests. Un point c'est tout. Un point c'est toi. (Zazie! Rends mon le clavier !)
+Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont programmé et qui cherchent à me convaincre en disant "ça marchait sur ma machine", voire à faire les yeux du chat botté pour m'amadouer. Non, non, non!  Je lis et j'exécute les tests. Un point c'est tout. Un point c'est toi. (Zazie! Rends moi le clavier !)
 
 ### Un premier pas sur le Chemin
 
-Malgré leur apparente simplicité, les tests déverrouillent tout un panel de techniques qui permettr
+Malgré leur apparente simplicité, les tests déverrouillent tout un panel de techniques sophistiquées qui permettent de mieux maîtriser son code toute en gardant la flexitbilité de pouvoir le modifier sans peur de tout casser.
+
+Faites donc vous aussi, ce premier pas sur la Voie.
 
 
 
