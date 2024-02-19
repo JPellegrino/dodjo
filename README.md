@@ -18,9 +18,8 @@ Je modifie ces notes de façon continue en fonction des retours des lectrices et
 ### Brise-chute
 
 Dans le contexte des arts martiaux, voici la définition de __ukemi__ d'après ma copine Wikipédia:
-```
-Un ukemi est un brise-chute contrôlé qui sert à tomber sans se faire mal. 
-```
+> Un ukemi est un brise-chute contrôlé qui sert à tomber sans se faire mal. 
+
 <p align="center">
   <img src="./assets/ukemi.jpg"/>
 </p>
