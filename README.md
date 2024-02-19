@@ -13,7 +13,9 @@ Pourquoi Dodjo ? Parce que Dodjo, c'est beau. Parce que Dodjo, c'est rigolo.
 Comme toute chose dans notre univers, ce contenu est **impermanent**. 
 Je modifie ces notes de façon continue en fonction des retours des lectrices et des lecteurs.
 
-## Les tests: ukemi du programmeur
+## Les tests : ukemi du programmeur
+
+### Brise-chute
 
 Dans le contexte des arts martiaux, voici la définition de __ukemi__ d'après mon copain Wikipédia:
 ```
@@ -39,7 +41,7 @@ Par ailleurs, lorsque je reprenais du code de quelqu'un d'autre (en fait souvent
 
 Un des atouts du test controlé en programmation c'est de pouvoir se planter sans se faire mal.
 
-Un exemple basique consiste à tester une fonction en comparant sa sortie avec ce que j'attends d'elle pour un jeu de paramètres donné.  Voici un exemple,p our ceux qui développe en Python:
+Un exemple basique consiste à tester une fonction en comparant sa sortie avec ce que j'attends d'elle pour un jeu de paramètres donné.  Voici un exemple, pour ceux qui développent en Python:
 
 Dans un fichier judo.py, j'écris la "coquille" de la fonction que je souhaite développer:
 ```python
@@ -50,7 +52,7 @@ def ippon_seoi_nage(attaquant:Judoka, défenseur:Judoka) -> Score:
 
 Dans un autre fichier, le test:
 ```python
-from judo_package import ippon_seoi_nage
+from judo import ippon_seoi_nage
 
 def test_ippon_seoi_nage():
     # Je prépare les combatants
@@ -66,9 +68,19 @@ def test_ippon_seoi_nage():
 
 J'exécute le test (en général j'utilise ``pytest``). Et là ... bah ça foire! Mais c'est normal car la fonction ``ippon_seoi_nage`` n'a pas d'implémentation pour le moment !
 
-Allez, on se relève et on reprend le combat ! A vous d'imaginer une implémentation qui fera **passer le test au vert** (c'est pas du __green whasing__, enfin je ne crois pas...).
+Allez, on se relève et on reprend le combat ! A vous d'imaginer une implémentation qui fera **passer le test au vert** (c'est pas du green washing, enfin je ne crois pas...). 
 
+Cette méthodologie, "coquille puis test puis implémentation", porte le nom de TDD pour *Test Driven Design*. Dans les faits, j'implémente souvent la fonction avant le test mais penser au test en amoint permet de mieux clarifier ce que l'on attend d'elle.
 
+### Intention et preuve de bonne foi
+
+Aujourd'hui, lorsque je découvre ou que je revois du code, je commence par regarder les tests. En effet, les tests vont naturellement indiquer ce que les auteurs du code avaient l'intention de faire. De plus, si l'exécution des tests se déroulent sans erreur cela "prouve" que le programme "fonctionne".
+
+Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont programmé et qui cherchent à me convaincre en disant "ça marchait sur ma machine", voire à faire les yeux du chat botté pour m'amadouer. Non, non, non!  Je lis et j'exécute les tests. Un point c'est tout. Un point c'est toi. (Zazie! Rends mon le clavier !)
+
+### Un premier pas sur le Chemin
+
+Malgré leur apparente simplicité, les tests déverrouillent tout un panel de techniques qui permettr
 
 
 
