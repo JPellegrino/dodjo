@@ -21,11 +21,9 @@ Dans le contexte des arts martiaux, voici la définition de __ukemi__ d'après m
 > Un ukemi est un brise-chute contrôlé qui sert à tomber sans se faire mal. 
 
 <p align="center">
-  <img src="./assets/ukemi.jpg"/>
+  <img src="./assets/ukemi2.jpg" height="200" width="200"/>
 </p>
-<p align="center">
-  <em>Brisage de chute en cours... Veuillez patienter...</em>
-</p>
+
 
 Alors qu'au judo, je pratique les ukemi depuis mon enfance; j'ai appris bien tardivement à employer les tests "contrôlés" en programmation.
   
@@ -77,7 +75,11 @@ Maintenant plus d'arrachage de cheveux (enfin presque...) ! Dès que je touche �
 
 Aujourd'hui, lorsque je découvre ou que je revois du code, je commence par regarder les tests. En effet, les tests vont naturellement indiquer ce que les auteurs du code avaient l'intention de faire. De plus, si l'exécution des tests se déroulent sans erreur cela "prouve" que le programme "fonctionne".
 
-Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont programmé et qui cherchent à me convaincre en disant "ça marchait sur ma machine", voire à faire les yeux du chat botté pour m'amadouer. Non, non, non!  Je lis et j'exécute les tests. Un point c'est tout. Un point c'est toi. (Zazie! Rends-moi le clavier !)
+<p align="center">
+  <img src="./assets/chat_potté.jpg" height="200" />
+</p>
+
+Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont programmé et qui cherchent à me convaincre en disant "ça marchait sur ma machine", voire à faire les yeux du chat potté pour m'amadouer. Non, non, non!  Je lis et j'exécute les tests. Un point c'est tout. Un point c'est toi. (Zazie! Rends-moi le clavier !)
 
 ### Un premier pas sur le Chemin
 
