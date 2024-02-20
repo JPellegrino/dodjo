@@ -32,13 +32,13 @@ Alors qu'au judo, je pratique les ukemi depuis mon enfance; j'ai appris bien tar
 Avant, je "testais" mon code en vérifiant "visuellement" que les résultats produits "convenaient". Ainsi quand je lançais mes scripts, trois cas se présentaient:
 1. un message d'erreur apparaissait : je lisais le message, je tentais une correction, je relançais le script et je bouclais.
 2. pas de message d'erreur et tout me semblait correct : je passais à la suite de mon travail.
-3. pas de message d'erreur mais un résultat me chiffonait: souvent je me disais "C'est bizarre, ça marchait toute à l'heure..." 
+3. pas de message d'erreur mais un résultat me chiffonnait: souvent je me disais "C'est bizarre, ça marchait tout à l'heure..." 
 
 Dans le dernier cas, je m'arrachais quelques cheveux quand je m'apercevais que j'avais fait une "modif vite fait quelque part" dans le code qui s'avérait être la source à tous mes maux !!!
 
-Par ailleurs, lorsque je reprenais du code de quelqu'un d'autre (en fait souvent une acienne version de moi-même :scream:), j'avais **peur de tout casser** : de "faire du mal" au programme et à moi-même. Vous sentez l'analogie avec les ukemi arriver ?
+Par ailleurs, lorsque je reprenais du code de quelqu'un d'autre (en fait souvent une ancienne version de moi-même :scream:), j'avais **peur de tout casser** : de "faire du mal" au programme et à moi-même. Vous sentez l'analogie avec les ukemi arriver ?
 
-Un des atouts du test controlé en programmation c'est de pouvoir se planter sans se faire mal.
+Un des atouts du test contrôlé en programmation c'est de pouvoir se planter sans se faire mal.
 
 Un exemple basique consiste à tester une fonction en comparant sa sortie avec ce que j'attends d'elle pour un jeu de paramètres donné.  Voici un exemple, pour ceux qui développent en Python:
 
@@ -77,13 +77,15 @@ Maintenant plus d'arrachage de cheveux (enfin presque...) ! Dès que je touche �
 
 Aujourd'hui, lorsque je découvre ou que je revois du code, je commence par regarder les tests. En effet, les tests vont naturellement indiquer ce que les auteurs du code avaient l'intention de faire. De plus, si l'exécution des tests se déroulent sans erreur cela "prouve" que le programme "fonctionne".
 
-Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont programmé et qui cherchent à me convaincre en disant "ça marchait sur ma machine", voire à faire les yeux du chat botté pour m'amadouer. Non, non, non!  Je lis et j'exécute les tests. Un point c'est tout. Un point c'est toi. (Zazie! Rends moi le clavier !)
+Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont programmé et qui cherchent à me convaincre en disant "ça marchait sur ma machine", voire à faire les yeux du chat botté pour m'amadouer. Non, non, non!  Je lis et j'exécute les tests. Un point c'est tout. Un point c'est toi. (Zazie! Rends-moi le clavier !)
 
 ### Un premier pas sur le Chemin
 
-Malgré leur apparente simplicité, les tests ont énormémement de vertues. Ils m'ont poussé à écrire du code "testable" et m'ont ammené un peu plus vers la *Programmation Fonctionnelle*. Il m'ont ouvert la voie à tout un panel de techniques sophistiquées, que je vais tenté de vous partagé ensuite, qui permettent de mieux maîtriser son code toute en gardant la flexitbilité de pouvoir le modifier sans peur de tout casser.
+Malgré leur apparente simplicité, les tests ont énormément de vertus. Ils m'ont poussé à écrire du code "testable" et m'ont amené un peu plus vers la *Programmation Fonctionnelle*. Ils m'ont ouvert la voie à tout un panel de techniques sophistiquées, que je vais tenter de vous partager ensuite, qui permettent de mieux maîtriser son code toute en gardant la flexibilité de pouvoir le modifier sans peur de tout casser.
 
 Faites donc vous aussi, ce premier pas sur la Voie. Hajime !
+
+## Programmation Fonctionnelle
 
 
 
