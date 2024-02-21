@@ -83,17 +83,56 @@ Donc aujourd'hui, je ne me repose plus sur la parole de celles ou ceux qui ont p
 
 ### Un premier pas sur le Chemin
 
+Il y a bien sûr beaucoup plus de choses à dire à propos des tests. Mais j'ai commencé par ce qu'il y a de plus basique. J'aborderai peut-être plus tard d'autres aspects plus avancés si cela intéresse les lectrices et les lecteurs.
+
 Malgré leur apparente simplicité, les tests ont énormément de vertus. Ils m'ont poussé à écrire du code "testable" et m'ont amené un peu plus vers la *Programmation Fonctionnelle*. Ils m'ont ouvert la voie à tout un panel de techniques sophistiquées, que je vais tenter de vous partager ensuite, qui permettent de mieux maîtriser son code toute en gardant la flexibilité de pouvoir le modifier sans peur de tout casser.
 
 Faites donc vous aussi, ce premier pas sur la Voie. Hajime !
 
 ## Programmation Fonctionnelle
 
+### Pourquoi utiliser des fonctions ? 
+
+> "Pourquoi utiliser des fonctions ? Hein ? Pourquoi ?"
+
+J'avais posé cette question un peu à l'improviste à mes collègues lors d'un coding dojo que j'animais.
+
+Une réponse qui est venue est: "pour éviter de dupliquer du code!". Humm... Je ne m'attendais pas vraiment à cette réponse. En fait, je n'avais pas de réponse toute faite de mon côté non plus, mais l'argument de non-duplication ne me semblait pas très fondamental. J'ai alors répliqué:
+
+> "Peut-être... Mais cela ne serait-il pas plutôt pour rendre le code plus modulaire ?!"
+
+En effet, ce que l'on entend souvent par quelque chose de "modulaire" n'est-ce pas une chose dont on peut changer la structure en ajoutant ou en retirant des "modules", des "briques", des "composants" ?
+
+On peut trouver toute sorte de choses modulaires autour de nous :
+- des jouets Lego composés de briques (mes petits chouchous pédagogiques :smile:).
+- des organismes vivants composés de cellules.
+- des molécules composés d'atomes.
+- des poèmes composés de mots.
+
+On se rend compte que l'idée maîtresse qui transparaît de ces exemples est la notion puissante de **composition**.
+
+Et bien adopter une démarche de *Programmation Fonctionnelle*, c'est penser son code en terme de composition de fonctions. 
+
+<p align="center">
+  <img src="./assets/brique.jpg" height="200" />
+</p>
+
+
+-> La puissance de la composition
+
+Des types à la pelle
+
+Fonctions pures (exemple avec datetime.now ?)
+Fonctions comme arguments de fonction
+
+
+Théorie de la composition (catégorie) 
 
 
 ## Sujet à traiter:
 - TDD
 - Programmation Fonctionnelle
+- Repository Pattern
 - DDD
 - Continuous Delivery
 - Coding dojo
@@ -108,5 +147,9 @@ Faites donc vous aussi, ce premier pas sur la Voie. Hajime !
 
 ## Inspiration par-delà de la programmation:
 - Richard Feynman (et la pédagogie du "take the world from another point of view") 
+- Carlo Rovelli (et la gravité quantique à boucle)
 - Olivia Caramello (et les ponts entre les domaines mathématiques)
-- Grothendieck (et la pensée de la pensée)
+- Alexandre Grothendieck (le grand refacteur des mathématiques)
+
+## Références
+https://github.com/BartoszMilewski/Publications/blob/master/TheDaoOfFP/DaoFP.pdf
