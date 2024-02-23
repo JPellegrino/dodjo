@@ -155,11 +155,11 @@ Je préfèrerais un truc du style:
 phrase_example = "La composition c'est bien, la composition c'est bon"
 
 # Cas avec les 4 fonctions
-modify_phrase = composes_components([split_phrase,remove_short_words,remove_long_words,build_phrase])
+modify_phrase = compose_components([split_phrase,remove_short_words,remove_long_words,build_phrase])
 phrase_without_short_and_long_words = modify_phrase(phrase=phrase_example)
 
 # Cas avec seulement 3 fonctions
-modify_phrase = composes_components([split_phrase,remove_long_words,build_phrase])
+modify_phrase = compose_components([split_phrase,remove_long_words,build_phrase])
 phrase_without_long_words = modify_phrase(phrase=phrase_example)
 
 
