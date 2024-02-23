@@ -172,11 +172,11 @@ Il reste cependant à definir la fonction magique ``compose``. Voici une implém
 ```python
 import functools
 
-def compose_tow_func(f:Callable, g:Callable) -> Callable:
+def compose_two_func(f:Callable, g:Callable) -> Callable:
     return lambda *a, **kw: f(g(*a, **kw))
 
 def compose(components:list[Callable]) -> Callable:
-    return functools.reduce(compose_tow_func, components)
+    return functools.reduce(compose_two_func, components)
 ```
 
 Notons au passage que j'ai utiliser le type ``Callable`` qui est peut-être encore un peu mystérieux pour vous. Il est donc grand temps d'aller voir les "stypes". 
