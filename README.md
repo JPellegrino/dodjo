@@ -165,7 +165,7 @@ phrase_without_long_words = modify_phrase(phrase=phrase_example)
 
 C'est quand même plus clair ! Cependant cela nécessite un peu de *ninjutsu*: j'ai besoin d'une fonction ``compose`` qui consomme une liste de fonctions et renvoye une fonction :alien:. 
 
-C'est une des marques de fabrique de l'école fonctionnelle: les fonctions sont traitées comme n'importe quel autre "objet", elle sont consommées ou produites par d'autres fonctions. 
+C'est une des marques de fabrique de l'école fonctionnelle: les fonctions sont traitées comme n'importe quel autre "objet", elles peuvent être consommées ou produites par d'autres fonctions. 
 
 Il reste cependant à definir la fonction magique ``compose``. Voici une implémentation possible en utilisant l'arme de base des ninjas fonctionnels, le package ``functools``:
 
@@ -179,7 +179,7 @@ def compose(components:list[Callable]) -> Callable:
     return functools.reduce(compose_two_func, components)
 ```
 
-Notons au passage que j'ai utiliser le type ``Callable`` qui est peut-être encore un peu mystérieux pour vous. Il est donc grand temps d'aller voir les "stypes". 
+Notons au passage que j'ai utilisé le type ``Callable`` qui est peut-être encore un peu mystérieux pour vous. Il est donc grand temps d'aller voir les "types". 
 
 ### C'est qui ce *Type* ? 
 
