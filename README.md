@@ -111,16 +111,70 @@ On peut trouver toute sorte de choses modulaires autour de nous :
 
 On se rend compte que l'idée maîtresse qui transparaît de ces exemples est la notion puissante de **composition**.
 
-Et bien adopter une démarche de *Programmation Fonctionnelle*, c'est penser son code en terme de composition de fonctions. 
+Adopter une démarche de *Programmation Fonctionnelle*, c'est penser son code en terme de composition de fonctions. 
 
 <p align="center">
   <img src="./assets/brique.jpg" height="200" />
 </p>
 
+Voici un exemple plutôt simple en Python:
+```python
+def split_phrase(phrase:str) -> list[str]:
+  pass
 
--> La puissance de la composition
+def remove_long_words(words:list[str]) -> list[str]:
+  pass
 
-Des types à la pelle
+def remove_short_words(words:list[str]) -> list[str]:
+  pass
+
+def build_phrase(words:list[str]) -> str:
+  pass
+
+```
+
+Je n'ai pas dénié préciser l'implémentation des fonctions car je veux attirer d'avantage votre attention sur leur *signature*. La signature c'est la description des interfaces d'entrée et de sortie d'une fonction. Ici, j'ai renseigné les *types* des entrées et sorties: une pratique ayant le nom de code *Type Hinting*. Malgré le fait que cela ne soit pas obligatoire en Python (contrairement à d'autres langages), cette pratique m'a fait faire un grand bond en avant dans la clareté du code que je produis. A tel point que je ne peux plus m'en passer : une sorte de *type addiction* :scream:. Nous reparlerons des types un peu plus loin.
+
+J'espère que les noms des fonctions sont assez explicites. C'est d'ailleurs aussi une bonne pratique que j'essaye d'appliquer au quotidien: ne pas hésiter à prendre le temps de bien nommer ses fonctions car c'est le meilleur endroit pour la "documenter" (J'aimerais vous parler plus tard, dans la partie *Domain Driven Design*, de l'importance de la "dénomination"). 
+
+Bon ! Très bien ! J'ai mes briques de base et après ? 
+
+Faisons un premier essai en composant toutes ces fonctions:
+
+```python
+def phrase_modification_pipeline(phrase:str) -> str:
+  modified_phrase = build_phrase(remove_long_words(remove_short_words(split_phrase(phrase)))) 
+  return modified_phrase
+```
+
+Pas long mais un peu lourd, non ? Il n'y a que 4 fonctions et ce n'est déjà plus très lisible... On remarque que l'ordre logique d'application des fonctions est dans le sens inverse de la lecture (F*ck le bon sens!). Et que faire si en plus je veux être flexible sur le fait d'utiliser ou non la fonction ``remove_short_words`` par exemple ??
+
+Je préfèrerais un truc du style:
+
+```python
+phrase_example = "La composition c'est bien, la composition c'est bon"
+
+# Cas avec les 4 fonctions
+phrase_modification_pipeline = composes_components([split_phrase,remove_short_words,remove_long_words,build_phrase])
+phrase_without_short_and_long_words = phrase_modification_pipeline(phrase=phrase_example)
+
+# Cas avec seulement 3 fonctions
+phrase_modification_pipeline = composes_components([split_phrase,remove_long_words,build_phrase])
+phrase_without_long_words = phrase_modification_pipeline(phrase=phrase_example)
+
+
+```
+
+### C'est qui ce *Type* ? 
+
+
+
+
+### Devenez la flèche 
+
+
+
+
 
 Fonctions pures (exemple avec datetime.now ?)
 Fonctions comme arguments de fonction
