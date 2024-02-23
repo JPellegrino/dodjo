@@ -171,9 +171,10 @@ Il reste cependant à definir la fonction magique ``compose``. Voici une implém
 
 ```python
 import functools
+from typing import Callable
 
 def compose_two_func(f:Callable, g:Callable) -> Callable:
-    return lambda *a, **kw: f(g(*a, **kw))
+    return lambda *a, **kw: g(f(*a, **kw)) #Notez bien l'ordre de la composition
 
 def compose(components:list[Callable]) -> Callable:
     return functools.reduce(compose_two_func, components)
