@@ -180,22 +180,49 @@ def compose(components:list[Callable]) -> Callable:
     return functools.reduce(compose_two_func, components)
 ```
 
+<p align="center">
+  <img src="./assets/ninjutsu.jpg" width="200" />
+</p>
+
 Notons au passage que j'ai utilisé le type ``Callable`` qui est peut-être encore un peu mystérieux pour vous. Il est donc grand temps d'aller voir les "types". 
 
 ### C'est qui ce *Type* ? 
 
+Je ne suis pas assez chevronné en *computer science* pour prétendre donner une définition exacte (voire valide) de ce que sont les types en programmation. Cependant, j'ai l'impression que l'on peut dire que le type d'une variable est un peu comme sa "nature", une sorte d'"essence" dont vont dépendre les "opérations" que l'on peut effectuer avec cette variable.  On sent bien que l'on ne va pas pouvoir faire les mêmes choses avec les types ``int`` et ``str`` par exemple. Malheureusement, il m'est difficile de préciser d'avantage les termes "nature" et "opération" ce qui ne fait que déplacer le problème de la définition.
+
+Pour se construire une meilleure intuition de ce que sont les types, il faut peut-être commencer à mettre un pied dans le bain de la Théorie des Catégorie. Si c'est la première fois pour vous, pensez à mettre vos brassards !
+
+<p align="center">
+  <img src="./assets/brassards.jpg" width="200" />
+</p>
+
+Cette théorie donne "simplement" le langage pour parler de composition (NB: J'ai regardé mais malheureusement cette langue n'est pas encore disponible sur Duolingo, dommage...). Pour commencer, deux éléments de bases:
+- il y a des *objets*  
+- il y a des *flèches* 
 
 
+```python
+Phrase = str
+Word = str
+
+def split_phrase(phrase:Phrase) -> list[Word]:
+  pass
+
+def remove_long_words(words:list[Word]) -> list[Word]:
+  pass
+
+def remove_short_words(words:list[Word]) -> list[Word]:
+  pass
+
+def build_phrase(words:list[Word]) -> Phrase:
+  pass
+
+```
+Algebraic Data Types?
 
 ### Devenez la flèche 
 
-
-
-
-
 Fonctions pures (exemple avec datetime.now ?)
-Fonctions comme arguments de fonction
-
 
 Théorie de la composition (catégorie) 
 
