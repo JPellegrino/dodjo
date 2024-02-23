@@ -155,15 +155,31 @@ Je préfèrerais un truc du style:
 phrase_example = "La composition c'est bien, la composition c'est bon"
 
 # Cas avec les 4 fonctions
-modify_phrase = compose_components([split_phrase,remove_short_words,remove_long_words,build_phrase])
+modify_phrase = compose(components=[split_phrase, remove_short_words, remove_long_words, build_phrase])
 phrase_without_short_and_long_words = modify_phrase(phrase=phrase_example)
 
 # Cas avec seulement 3 fonctions
-modify_phrase = compose_components([split_phrase,remove_long_words,build_phrase])
+modify_phrase = compose(components=[split_phrase, remove_long_words, build_phrase])
 phrase_without_long_words = modify_phrase(phrase=phrase_example)
-
-
 ```
+
+C'est quand même plus clair ! Cependant cela nécessite un peu de *ninjutsu*: j'ai besoin d'une fonction ``compose`` qui consomme une liste de fonctions et renvoye une fonction :alien:. 
+
+C'est une des marques de fabrique de l'école fonctionnelle: les fonctions sont traitées comme n'importe quel autre "objet", elle sont consommées ou produites par d'autres fonctions. 
+
+Il reste cependant à definir la fonction magique ``compose``. Voici une implémentation possible en utilisant l'arme de base des ninjas fonctionnels, le package ``functools``:
+
+```python
+import functools
+
+def compose_tow_func(f:Callable, g:Callable) -> Callable:
+    return lambda *a, **kw: f(g(*a, **kw))
+
+def compose(components:list[Callable]) -> Callable:
+    return functools.reduce(compose_tow_func, components)
+```
+
+Notons au passage que j'ai utiliser le type ``Callable`` qui est peut-être encore un peu mystérieux pour vous. Il est donc grand temps d'aller voir les "stypes". 
 
 ### C'est qui ce *Type* ? 
 
