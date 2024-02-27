@@ -104,10 +104,10 @@ Une réponse qui est venue est: "pour éviter de dupliquer du code!". Humm... Je
 En effet, ce que l'on entend souvent par quelque chose de "modulaire" n'est-ce pas une chose dont on peut changer la structure en ajoutant ou en retirant des "modules", des "briques", des "composants" ?
 
 On peut trouver toute sorte de choses modulaires autour de nous :
-- des jouets Lego composés de briques (mes petits chouchous pédagogiques :smile:).
-- des organismes vivants composés de cellules.
-- des molécules composés d'atomes.
-- des poèmes composés de mots.
+- les jouets Lego de mes enfants sont composés de briques.
+- les organismes vivants composés de cellules.
+- les molécules composés d'atomes.
+- les poèmes composés de mots.
 
 On se rend compte que l'idée maîtresse qui transparaît de ces exemples est la notion puissante de **composition**.
 
@@ -184,22 +184,16 @@ def compose(components:list[Callable]) -> Callable:
   <img src="./assets/ninjutsu.jpg" width="200" />
 </p>
 
+
+Ainsi, suivant l'exemple que nous venons de voir, nous pouvons créer des *pipelines* de traitement de données assez naturellement à partir de listes de fonctions composables! D'autres exemples d'applications de la logique fonctionnelle vont suivre, ne quittez pas...
+
 Notons au passage que j'ai utilisé le type ``Callable`` qui est peut-être encore un peu mystérieux pour vous. Il est donc grand temps d'aller voir les "types". 
 
 ### C'est qui ce *Type* ? 
 
-Je ne suis pas assez chevronné en *computer science* pour prétendre donner une définition exacte (voire valide) de ce que sont les types en programmation. Cependant, j'ai l'impression que l'on peut dire que le type d'une variable est un peu comme sa "nature", une sorte d'"essence" dont vont dépendre les "opérations" que l'on peut effectuer avec cette variable.  On sent bien que l'on ne va pas pouvoir faire les mêmes choses avec les types ``int`` et ``str`` par exemple. Malheureusement, il m'est difficile de préciser d'avantage les termes "nature" et "opération" ce qui ne fait que déplacer le problème de la définition.
+Je ne suis pas assez chevronné en *computer science* pour prétendre donner une définition exacte (voire valide) de ce que sont les types en programmation. Cependant, j'ai l'impression que l'on peut dire que le type d'une variable est un peu comme sa *nature*, une sorte d'*essence* dont vont dépendre les *opérations* que l'on peut effectuer avec cette variable.  On sent bien que l'on ne va pas pouvoir faire les mêmes choses avec les types ``int`` et ``str`` par exemple. Malheureusement, il m'est difficile de préciser d'avantage les termes *nature* et *opération* ce qui ne fait que déplacer le problème de la définition. J'entrerai plus tard dans les aspects théroriques (cf la future partie sur la théorie des catégories), pour le moment je vais vous partager comment je "pratique" les types.
 
-Pour se construire une meilleure intuition de ce que sont les types, il faut peut-être commencer à mettre un pied dans le bain de la Théorie des Catégorie. Si c'est la première fois pour vous, pensez à mettre vos brassards !
-
-<p align="center">
-  <img src="./assets/brassards.jpg" width="200" />
-</p>
-
-Cette théorie donne "simplement" le langage pour parler de composition (NB: J'ai regardé mais malheureusement cette langue n'est pas encore disponible sur Duolingo, dommage...). Pour commencer, deux éléments de bases:
-- il y a des *objets*  
-- il y a des *flèches* 
-
+La première technique que j'utilise est le *type aliasing*, cf l'exemple suivant:
 
 ```python
 Phrase = str
@@ -218,18 +212,72 @@ def build_phrase(words:list[Word]) -> Phrase:
   pass
 
 ```
+
+Je crée mes propres types en copiant certains pré-existants (ou plutôt en créeant un alias). L'intérêt est que cela rend le code plus lisible en utilisant des termes plus proches du vocabulaire "métiers". Ici par exemple, j'ai trouve les signatures des fonctions beaucoup plus parlantes: c'est quasiment de l'anglais que même les non programmeurs peuvent comprendre (je reviendrai sur ce point que l'on nomme *Ubiquitous Language* dans la partie sur le *Domain Driven Design*).
+
+Cela me pertmet aussi de découpler un peu mes fonctions du type de base ``str``: en effet, si je décide de changer la définition de ``Phrase`` ou ``Word`` alors je n'ai pas besoin de toucher à la signature des fonctions (c'est toujours ça de moins à faire!).
+
+Deuxième technique, les dataclasses:
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Phrase:
+  content:str
+  language:Language
+
+```
+
+Désormais j'ai donc enrichi mon type en implémentant des attributs accessibles via ``pharse.content`` et  ``pharse.language``. Le type ``Language`` pouvant être définit par la technique suivante.
+
+Troisième technique, l'héritage de classe. Voici un exemple que j'utilise parfois quand je veux un type avec un nombre déterminé d'option:
+
+```python
+from enum import Enum
+
+# class syntax
+class Language(Enum):
+    FR = 1
+    EN = 2
+    JP = 3
+
+# functional syntax
+Language = Enum('Language', ['FR', 'EN', 'JP'])
+```
+
+
+
+
 Algebraic Data Types?
 
-### Devenez la flèche 
+### Patron : Stratégie
 
-Fonctions pures (exemple avec datetime.now ?)
 
-Théorie de la composition (catégorie) 
+### Devenez jongleur de flèches 
+
+Pour se construire une meilleure intuition de ce que sont les types, il faut peut-être commencer à mettre un pied dans le bain de la Théorie des Catégories. Si c'est la première fois pour vous, pensez à mettre vos brassards !
+
+<p align="center">
+  <img src="./assets/brassards.jpg" width="200" />
+</p>
+
+Cette théorie est un langage qui nous permet de raisonner sur le principe de la composition. Dans cette langue, on va parler d'*objets* reliés par des *flèches*. Pour faire tout de suite l'analogie avec la programmation, les *objets* seront les types possibles pour nos variables (comme ``str``,``int``,``float`` et bien d'autres comme nous le verrons ensuite), et les *flèches* sont les fonctions qui consomment des variables d'un certain type (source de la *flèche*) pour en produire d'autres d'un autre type (but de la *flèche*).
+
+Pour rester cohérent, il y a des règles à respecter:
+- Pour chaque *objet*, il existe une *flèche* "neutre" dont cet objet est la source et le but (une petite boucle appelée "identité") En programmation, c'est la fonction qui retourne son entrée.
+- Pour chaque couple de *flèche* "composables" (ie dont l'*objet* but de l'une correspond à l'*objet* source de l'autre ), il existe nécessairement une *flèche* composée.
+
+
+
+
+Foncteurs et Monades : Bienvenue dans le Mutliverse
 
 
 ## Sujet à traiter:
 - TDD
 - Programmation Fonctionnelle
+- Théorie des Catégories
 - Repository Pattern
 - DDD
 - Continuous Delivery
