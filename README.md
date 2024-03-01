@@ -133,7 +133,7 @@ def build_phrase(words:list[str]) -> str:
 
 ```
 
-Je n'ai pas dénié préciser l'implémentation des fonctions car je veux attirer d'avantage votre attention sur leur *signature*. La signature c'est la description des interfaces d'entrée et de sortie d'une fonction. Ici, j'ai renseigné les *types* des entrées et sorties: une pratique ayant le nom de code *Type Hinting*. Malgré le fait que cela ne soit pas obligatoire en Python (contrairement à d'autres langages), cette pratique m'a fait faire un grand bond en avant dans la clareté du code que je produis. A tel point que je ne peux plus m'en passer : une sorte de *type addiction* :scream:. Nous reparlerons des types un peu plus loin.
+Je n'ai pas dénié préciser l'implémentation des fonctions car je veux attirer d'avantage votre attention sur leur *signature*. La signature c'est la description des interfaces d'entrée et de sortie d'une fonction. Ici, j'ai renseigné les *types* des entrées et sorties: une pratique ayant le nom de code *Type Hinting*. Malgré le fait que cela ne soit pas obligatoire en Python (contrairement à d'autres langages), cette pratique m'a fait faire un grand bond en avant dans la clarté du code que je produis. A tel point que je ne peux plus m'en passer : une sorte de *type addiction* :scream:. Nous reparlerons des types un peu plus loin.
 
 J'espère que les noms des fonctions sont assez explicites. C'est d'ailleurs aussi une bonne pratique que j'essaye d'appliquer au quotidien: ne pas hésiter à prendre le temps de bien nommer ses fonctions car c'est le meilleur endroit pour la "documenter" (J'aimerais vous parler plus tard, dans la partie *Domain Driven Design*, de l'importance de la "dénomination"). 
 
@@ -163,11 +163,11 @@ modify_phrase = compose(components=[split_phrase, remove_long_words, build_phras
 phrase_without_long_words = modify_phrase(phrase=phrase_example)
 ```
 
-C'est quand même plus clair ! Cependant cela nécessite un peu de *ninjutsu*: j'ai besoin d'une fonction ``compose`` qui consomme une liste de fonctions et renvoye une fonction :alien:. 
+C'est quand même plus clair ! Cependant cela nécessite un peu de *ninjutsu*: j'ai besoin d'une fonction ``compose`` qui consomme une liste de fonctions et renvoie une fonction :alien:. 
 
 C'est une des marques de fabrique de l'école fonctionnelle: les fonctions sont traitées comme n'importe quel autre "objet", elles peuvent être consommées ou produites par d'autres fonctions. 
 
-Il reste cependant à definir la fonction magique ``compose``. Voici une implémentation possible en utilisant l'arme de base des ninjas fonctionnels, le package ``functools``:
+Il reste cependant à définir la fonction magique ``compose``. Voici une implémentation possible en utilisant l'arme de base des ninjas fonctionnels, le package ``functools``:
 
 ```python
 import functools
@@ -191,7 +191,7 @@ Notons au passage que j'ai utilisé le type ``Callable`` qui est peut-être enco
 
 ### C'est qui ce *Type* ? 
 
-Je ne suis pas assez chevronné en *computer science* pour prétendre donner une définition exacte (voire valide) de ce que sont les types en programmation. Cependant, j'ai l'impression que l'on peut dire que le type d'une variable est un peu comme sa *nature*, une sorte d'*essence* dont vont dépendre les *opérations* que l'on peut effectuer avec cette variable.  On sent bien que l'on ne va pas pouvoir faire les mêmes choses avec les types ``int`` et ``str`` par exemple. Malheureusement, il m'est difficile de préciser d'avantage les termes *nature* et *opération* ce qui ne fait que déplacer le problème de la définition. J'entrerai plus tard dans les aspects théroriques (cf la future partie sur la théorie des catégories), pour le moment je vais vous partager comment je "pratique" les types.
+Je ne suis pas assez chevronné en *computer science* pour prétendre donner une définition exacte (voire valide) de ce que sont les types en programmation. Cependant, j'ai l'impression que l'on peut dire que le type d'une variable est un peu comme sa *nature*, une sorte d'*essence* dont vont dépendre les *opérations* que l'on peut effectuer avec cette variable.  On sent bien que l'on ne va pas pouvoir faire les mêmes choses avec les types ``int`` et ``str`` par exemple. Malheureusement, il m'est difficile de préciser d'avantage les termes *nature* et *opération* ce qui ne fait que déplacer le problème de la définition. J'entrerai plus tard dans les aspects théoriques (cf la future partie sur la théorie des catégories), pour le moment je vais vous partager comment je "pratique" les types.
 
 La première technique que j'utilise est le *type aliasing*, cf l'exemple suivant:
 
@@ -213,9 +213,9 @@ def build_phrase(words:list[Word]) -> Phrase:
 
 ```
 
-Je crée mes propres types en copiant certains pré-existants (ou plutôt en créeant un alias). L'intérêt est que cela rend le code plus lisible en utilisant des termes plus proches du vocabulaire "métiers". Ici par exemple, j'ai trouve les signatures des fonctions beaucoup plus parlantes: c'est quasiment de l'anglais que même les non programmeurs peuvent comprendre (je reviendrai sur ce point que l'on nomme *Ubiquitous Language* dans la partie sur le *Domain Driven Design*).
+Je crée mes propres types en copiant certains préexistants (ou plutôt en créant un alias). L'intérêt est que cela rend le code plus lisible en utilisant des termes plus proches du vocabulaire "métiers". Ici par exemple, je trouve les signatures des fonctions beaucoup plus parlantes: c'est quasiment de l'anglais que même les non programmeurs peuvent comprendre (je reviendrai sur ce point que l'on nomme *Ubiquitous Language* dans la partie sur le *Domain Driven Design*).
 
-Cela me pertmet aussi de découpler un peu mes fonctions du type de base ``str``: en effet, si je décide de changer la définition de ``Phrase`` ou ``Word`` alors je n'ai pas besoin de toucher à la signature des fonctions (c'est toujours ça de moins à faire!).
+Cela me permet aussi de découpler un peu mes fonctions du type de base ``str``: en effet, si je décide de changer la définition de ``Phrase`` ou ``Word`` alors je n'ai pas besoin de toucher à la signature des fonctions (c'est toujours ça de moins à faire!).
 
 Deuxième technique, les dataclasses:
 
@@ -280,6 +280,7 @@ Foncteurs et Monades : Bienvenue dans le Mutliverse
 - Théorie des Catégories
 - Repository Pattern
 - DDD
+- Context Manager
 - Continuous Delivery
 - Coding dojo
   
